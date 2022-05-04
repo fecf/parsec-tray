@@ -1,0 +1,6 @@
+[submodule "parsec-sdk"]
+	path = parsec-sdk
+	url = https://github.com/parsec-cloud/parsec-sdk
+[submodule "libmatoya"]
+	path = libmatoya
+	url = https://github.com/parsec-cloud/libmatoya

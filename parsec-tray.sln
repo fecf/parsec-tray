@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmatoya", "libmatoya\libmatoya.vcxproj", "{C7E2C67A-334D-7BF1-7C8B-2C97E8345946}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "parsec-tray", "parsec-tray.vcxproj", "{50900F16-BC45-880B-453A-82E2B1EE7E0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7E2C67A-334D-7BF1-7C8B-2C97E8345946} = {C7E2C67A-334D-7BF1-7C8B-2C97E8345946}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7E2C67A-334D-7BF1-7C8B-2C97E8345946}.Debug|x64.ActiveCfg = Debug|x64
+		{C7E2C67A-334D-7BF1-7C8B-2C97E8345946}.Debug|x64.Build.0 = Debug|x64
+		{C7E2C67A-334D-7BF1-7C8B-2C97E8345946}.Release|x64.ActiveCfg = Release|x64
+		{C7E2C67A-334D-7BF1-7C8B-2C97E8345946}.Release|x64.Build.0 = Release|x64
+		{50900F16-BC45-880B-453A-82E2B1EE7E0F}.Debug|x64.ActiveCfg = Debug|x64
+		{50900F16-BC45-880B-453A-82E2B1EE7E0F}.Debug|x64.Build.0 = Debug|x64
+		{50900F16-BC45-880B-453A-82E2B1EE7E0F}.Release|x64.ActiveCfg = Release|x64
+		{50900F16-BC45-880B-453A-82E2B1EE7E0F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

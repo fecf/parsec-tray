@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gfx">
+      <UniqueIdentifier>{AA76880B-1680-887C-9FFB-9E7C0B04947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gfx\shaders">
+      <UniqueIdentifier>{A33D6DB8-0FF3-E5AD-98E7-DF84049CDCB1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gfx\shaders\gl">
+      <UniqueIdentifier>{65541A9F-5122-0EA5-3AB6-7ECB2623EA09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hid">
+      <UniqueIdentifier>{3A7B880B-A684-887C-2F00-9F7C9B08947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{4C94880B-B89D-887C-4119-9F7CAD21947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix">
+      <UniqueIdentifier>{C9199F7C-B550-A00D-5E3D-86104A531C0F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple">
+      <UniqueIdentifier>{2AA0048D-1658-46DA-7F5F-1F366B36E1CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\appletvos">
+      <UniqueIdentifier>{77F93363-6388-BD2C-0CA7-D127F814CED2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\appletvsimulator">
+      <UniqueIdentifier>{F5332CBD-6141-5AA3-EA27-568E5634265A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\gfx">
+      <UniqueIdentifier>{BE2E68C1-AAFC-5BC7-9390-CCED7FFD372C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\gfx\shaders">
+      <UniqueIdentifier>{B7C93D68-A3C3-66BA-8C30-FDCA78C9CC26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\gfx\shaders\metal">
+      <UniqueIdentifier>{193822D8-05F3-1184-AEAA-8ACE9A445C14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\iphoneos">
+      <UniqueIdentifier>{BE42F7A7-2AA4-D4B5-B311-1B681F720B75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\iphonesimulator">
+      <UniqueIdentifier>{5C6785F4-4877-31C5-B130-96E39D5F205E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\macosx">
+      <UniqueIdentifier>{C47AA44F-3091-A2E5-7908-2E07E55D736D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\apple\macosx\gfx">
+      <UniqueIdentifier>{58C6472F-C432-032A-8D26-9B87F9512592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux">
+      <UniqueIdentifier>{C8CFC78D-B487-09DB-1D8F-E2360966A4CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\android">
+      <UniqueIdentifier>{18A32F98-0487-F0ED-6DE7-EA4059EADA6F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\android\gfx">
+      <UniqueIdentifier>{ACF8169F-98F2-3FF1-815F-D6016DF8A55D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\generic">
+      <UniqueIdentifier>{D482BC51-C066-7DA7-29C7-77FA15CA6729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\generic\dl">
+      <UniqueIdentifier>{9357FA0F-FFC3-B50A-C8B7-4D6834E3D772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\generic\gfx">
+      <UniqueIdentifier>{6856450F-5450-6E61-3DBD-04722956D4CD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\linux\gfx">
+      <UniqueIdentifier>{5CFD55C9-48CB-49CF-315F-BAF51DCC2534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\net">
+      <UniqueIdentifier>{7F7DD486-6B4A-2F92-9463-1D3A808F6420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\web">
+      <UniqueIdentifier>{B6A3D486-A270-2F92-CB89-1D3AB7B56420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unix\web\gfx">
+      <UniqueIdentifier>{4A186763-367B-F607-DF00-2FBECB42C28A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{70CAFEC8-DCA9-7D64-E5C1-083B5120E4C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows\gfx">
+      <UniqueIdentifier>{040C5A67-70C1-D25C-F9B5-CC33656AC960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows\gfx\shaders">
+      <UniqueIdentifier>{FD8CC3B6-69EE-A0C4-F25B-E7765EBCD783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows\gfx\shaders\d3d11">
+      <UniqueIdentifier>{E9455CDE-5508-9068-9EB8-1EF50ABA6846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows\gfx\shaders\d3d9">
+      <UniqueIdentifier>{C06E8E4C-AC93-DDCC-D5DE-C25CC162DCEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows\net">
+      <UniqueIdentifier>{A6295A67-12DF-D25C-9BD3-CC330788C960}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libmatoya\src\app.h" />
+    <ClInclude Include="libmatoya\src\gfx\glproc.h">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\gfx\mod-ctx.h">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\gfx\mod-ui.h">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\gfx\mod.h">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\gfx\viewport.h">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\hid.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\nx.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\ps4.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\ps5.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\utils.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\xbox.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\hid\xboxw.h">
+      <Filter>hid</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\matoya.h" />
+    <ClInclude Include="libmatoya\src\net\gzip.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\net\http.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\net\net.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\net\secure.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\net\tcp.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\appletvos\aes-gcm-neon.h">
+      <Filter>unix\apple\appletvos</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\appletvsimulator\aes-gcm-neon.h">
+      <Filter>unix\apple\appletvsimulator</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\dlopen.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\gettime.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\gfx\mod-support.h">
+      <Filter>unix\apple\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\home.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\iphoneos\aes-gcm-neon.h">
+      <Filter>unix\apple\iphoneos</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\iphonesimulator\aes-gcm-neon.h">
+      <Filter>unix\apple\iphonesimulator</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\macosx\gfx\display-link.h">
+      <Filter>unix\apple\macosx\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\macosx\keymap.h">
+      <Filter>unix\apple\macosx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\macosx\scale.h">
+      <Filter>unix\apple\macosx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\rwlockattr.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\sleep.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\thread.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\apple\timestamp.h">
+      <Filter>unix\apple</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\fsutil.h">
+      <Filter>unix</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\android\dlopen.h">
+      <Filter>unix\linux\android</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\android\gfx\gl-ctx.h">
+      <Filter>unix\linux\android\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\android\home.h">
+      <Filter>unix\linux\android</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\android\jnih.h">
+      <Filter>unix\linux\android</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\android\keymap.h">
+      <Filter>unix\linux\android</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\libX11.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\libasound.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\libcrypto.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\libssl.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\libudev.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dl\sym.h">
+      <Filter>unix\linux\generic\dl</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\dlopen.h">
+      <Filter>unix\linux\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\evdev.h">
+      <Filter>unix\linux\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\home.h">
+      <Filter>unix\linux\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\generic\keymap.h">
+      <Filter>unix\linux\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\gettime.h">
+      <Filter>unix\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\gfx\mod-support.h">
+      <Filter>unix\linux\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\rwlockattr.h">
+      <Filter>unix\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\sleep.h">
+      <Filter>unix\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\thread.h">
+      <Filter>unix\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\linux\timestamp.h">
+      <Filter>unix\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\net\sock.h">
+      <Filter>unix\net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\rwlock.h">
+      <Filter>unix</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\tlocal.h">
+      <Filter>unix</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\dlopen.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\gettime.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\gfx\mod-support.h">
+      <Filter>unix\web\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\home.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\keymap.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\rwlockattr.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\sleep.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\thread.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\timestamp.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\unix\web\web.h">
+      <Filter>unix\web</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\fsutil.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\gfx\mod-support.h">
+      <Filter>windows\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\hidpi.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\net\sock.h">
+      <Filter>windows\net</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\rwlock.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\tlocal.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\wintab.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\windows\xip.h">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="libmatoya\src\wsize.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libmatoya\src\app.c" />
+    <ClCompile Include="libmatoya\src\crypto.c" />
+    <ClCompile Include="libmatoya\src\file.c" />
+    <ClCompile Include="libmatoya\src\gfx\gl-ui.c">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\gfx\gl.c">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\hash.c" />
+    <ClCompile Include="libmatoya\src\hid\hid.c">
+      <Filter>hid</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\hid\utils.c">
+      <Filter>hid</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\image.c" />
+    <ClCompile Include="libmatoya\src\json.c" />
+    <ClCompile Include="libmatoya\src\list.c" />
+    <ClCompile Include="libmatoya\src\log.c" />
+    <ClCompile Include="libmatoya\src\memory.c" />
+    <ClCompile Include="libmatoya\src\net\async.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\gzip.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\http.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\net.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\secure.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\tcp.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\net\ws.c">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\queue.c" />
+    <ClCompile Include="libmatoya\src\render.c" />
+    <ClCompile Include="libmatoya\src\system.c" />
+    <ClCompile Include="libmatoya\src\thread.c" />
+    <ClCompile Include="libmatoya\src\tlocal.c" />
+    <ClCompile Include="libmatoya\src\tls.c" />
+    <ClCompile Include="libmatoya\src\unix\apple\appletvos\aes-gcm.c">
+      <Filter>unix\apple\appletvos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvos\app.m">
+      <Filter>unix\apple\appletvos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvos\dialog.c">
+      <Filter>unix\apple\appletvos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvos\system.m">
+      <Filter>unix\apple\appletvos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvsimulator\aes-gcm.c">
+      <Filter>unix\apple\appletvsimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvsimulator\app.m">
+      <Filter>unix\apple\appletvsimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvsimulator\dialog.c">
+      <Filter>unix\apple\appletvsimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\appletvsimulator\system.m">
+      <Filter>unix\apple\appletvsimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\audio.c">
+      <Filter>unix\apple</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\crypto.c">
+      <Filter>unix\apple</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\gfx\metal-ui.m">
+      <Filter>unix\apple\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\gfx\metal.m">
+      <Filter>unix\apple\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphoneos\aes-gcm.c">
+      <Filter>unix\apple\iphoneos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphoneos\app.m">
+      <Filter>unix\apple\iphoneos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphoneos\dialog.c">
+      <Filter>unix\apple\iphoneos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphoneos\system.m">
+      <Filter>unix\apple\iphoneos</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphonesimulator\aes-gcm.c">
+      <Filter>unix\apple\iphonesimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphonesimulator\app.m">
+      <Filter>unix\apple\iphonesimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphonesimulator\dialog.c">
+      <Filter>unix\apple\iphonesimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\iphonesimulator\system.m">
+      <Filter>unix\apple\iphonesimulator</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\aes-gcm.c">
+      <Filter>unix\apple\macosx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\app.m">
+      <Filter>unix\apple\macosx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\dialog.c">
+      <Filter>unix\apple\macosx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\gfx\gl-ctx.m">
+      <Filter>unix\apple\macosx\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\gfx\metal-ctx.m">
+      <Filter>unix\apple\macosx\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\hid.c">
+      <Filter>unix\apple\macosx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\macosx\system.m">
+      <Filter>unix\apple\macosx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\apple\tls.c">
+      <Filter>unix\apple</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\file.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\image.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\aes-gcm.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\app.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\audio.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\crypto.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\gfx\gl-ctx.c">
+      <Filter>unix\linux\android\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\jnih.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\system.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\android\tls.c">
+      <Filter>unix\linux\android</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\dialog.c">
+      <Filter>unix\linux</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\aes-gcm.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\app.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\audio.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\crypto.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\evdev.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\gfx\gl-ctx.c">
+      <Filter>unix\linux\generic\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\system.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\linux\generic\tls.c">
+      <Filter>unix\linux\generic</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\memory.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\net\request.c">
+      <Filter>unix\net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\system.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\thread.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\time.c">
+      <Filter>unix</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\web\app.c">
+      <Filter>unix\web</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\web\dialog.c">
+      <Filter>unix\web</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\web\gfx\gl-ctx.c">
+      <Filter>unix\web\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\unix\web\system.c">
+      <Filter>unix\web</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\version.c" />
+    <ClCompile Include="libmatoya\src\windows\aes-gcm.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\appw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\audio.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\cryptow.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\dialog.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\filew.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d11-ctx.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d11-ui.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d11.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d12-ctx.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d12-ui.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d12.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d9-ctx.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d9-ui.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\d3d9.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\gfx\gl-ctx.c">
+      <Filter>windows\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\hidw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\imagew.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\memoryw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\net\request.c">
+      <Filter>windows\net</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\systemw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\threadw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\time.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\tlsw.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="libmatoya\src\windows\wintab.c">
+      <Filter>windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libmatoya\src\gfx\shaders\gl\fs.frag">
+      <Filter>gfx\shaders\gl</Filter>
+    </None>
+    <None Include="libmatoya\src\gfx\shaders\gl\fsui.frag">
+      <Filter>gfx\shaders\gl</Filter>
+    </None>
+    <None Include="libmatoya\src\gfx\shaders\gl\vs.vert">
+      <Filter>gfx\shaders\gl</Filter>
+    </None>
+    <None Include="libmatoya\src\gfx\shaders\gl\vsui.vert">
+      <Filter>gfx\shaders\gl</Filter>
+    </None>
+    <None Include="libmatoya\src\unix\apple\gfx\shaders\metal\quad.metal">
+      <Filter>unix\apple\gfx\shaders\metal</Filter>
+    </None>
+    <None Include="libmatoya\src\unix\apple\gfx\shaders\metal\ui.metal">
+      <Filter>unix\apple\gfx\shaders\metal</Filter>
+    </None>
+    <None Include="libmatoya\src\unix\linux\android\Matoya.java">
+      <Filter>unix\linux\android</Filter>
+    </None>
+    <None Include="libmatoya\src\unix\web\matoya.js">
+      <Filter>unix\web</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d11\ps.ps4">
+      <Filter>windows\gfx\shaders\d3d11</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d11\psui.ps4">
+      <Filter>windows\gfx\shaders\d3d11</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d11\vs.vs4">
+      <Filter>windows\gfx\shaders\d3d11</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d11\vsui.vs4">
+      <Filter>windows\gfx\shaders\d3d11</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d9\ps.ps3">
+      <Filter>windows\gfx\shaders\d3d9</Filter>
+    </None>
+    <None Include="libmatoya\src\windows\gfx\shaders\d3d9\vs.vs3">
+      <Filter>windows\gfx\shaders\d3d9</Filter>
+    </None>
+  </ItemGroup>
+</Project>
