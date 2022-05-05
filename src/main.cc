@@ -42,6 +42,7 @@ struct ParsecHost {
 std::vector<ParsecHost> g_hosts;
 tray g_tray;
 bool g_run_auth = false;
+bool g_run_hosts = false;
 
 void RefreshTray() {
   g_tray = CreateTray();
@@ -53,7 +54,8 @@ tray CreateTray() {
   t.icon = IDI_ICON1;
   t.tooltip = "parsec-tray";
   if (g_session_id != "" && g_peer_id != "") {
-    t.menu.push_back(tray_menu("Refresh"));
+    t.menu.push_back(
+        tray_menu("Refresh", [&](const tray_menu*) { g_run_hosts = true; }));
     if (g_hosts.empty()) {
       t.menu.push_back(tray_menu("Hosts not found."));
     } else {
@@ -235,6 +237,8 @@ int WINAPI wWinMain(HINSTANCE hInstance,
                     HINSTANCE hPrevInstance,
                     PWSTR lpCmdLine,
                     int nCmdShow) {
+  winrt::init_apartment();
+
   int argc;
   LPWSTR* argv = ::CommandLineToArgvW(lpCmdLine, &argc);
   if (argc >= 3) {
@@ -280,6 +284,10 @@ int WINAPI wWinMain(HINSTANCE hInstance,
         Login();
         ParsecHosts(g_session_id, g_hosts);
         g_run_auth = false;
+      }
+      if (g_run_hosts) {
+        ParsecHosts(g_session_id, g_hosts);
+        g_run_hosts = false;
       }
     }
   }
