@@ -217,8 +217,12 @@ void Login() {
     std::cin >> email;
     std::cout << "input password: ";
     std::cin >> password;
-    std::cout << "input tfa token (just press enter if not set): ";
+    std::cout << "input tfa token (input \"no\" if not set): ";
     std::cin >> tfa;
+
+    if (tfa == "no") {
+      tfa = "";
+    }
 
     bool ret =
         ParsecAuth(email, password, tfa, g_user_id, g_session_id, g_peer_id);
