@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <shlwapi.h>
 
 #include "client.h"
 
@@ -10,21 +11,6 @@
 #include "mtymap.h"
 
 #define PARSEC_APP_CLIPBOARD_MSG 7
-
-#if defined(_WIN32)
-#if !defined(BITS)
-#define BITS 64
-#endif
-#if (BITS == 64)
-#define SDK_PATH "../../sdk/windows/parsec.dll"
-#else
-#define SDK_PATH "../../sdk/windows/parsec32.dll"
-#endif
-#elif defined(__APPLE__)
-#define SDK_PATH "../../sdk/macos/libparsec.dylib"
-#else
-#define SDK_PATH "../../sdk/linux/libparsec.so"
-#endif
 
 struct context {
   bool done;
@@ -62,20 +48,18 @@ static void cursor_func(struct context* ctx,
     uint8_t* image = (uint8_t*)ParsecGetBuffer(ctx->parsec, bufferKey);
 
     if (image) {
-      MTY_AppSetPNGCursor(ctx->app, image, cursor->size, cursor->hotX,
-                          cursor->hotY);
+      MTY_AppSetPNGCursor(ctx->app, image, cursor->size, cursor->hotX, cursor->hotY);
       ParsecFree(ctx->parsec, image);
     }
   }
 
   bool relative = cursor->relative || cursor->hidden;
-
   if (MTY_AppGetRelativeMouse(ctx->app) && !relative) {
     MTY_AppSetRelativeMouse(ctx->app, false);
     MTY_WindowWarpCursor(ctx->app, 0, cursor->positionX, cursor->positionY);
-
   } else if (!MTY_AppGetRelativeMouse(ctx->app) && relative) {
     MTY_AppSetRelativeMouse(ctx->app, true);
+    MTY_WindowWarpCursor(ctx->app, 0, cursor->positionX, cursor->positionY);
   }
 }
 
@@ -170,7 +154,16 @@ Context::~Context() {}
 int Context::Start() {
   struct context ctx = {0};
 
-  ParsecStatus e = ParsecInit(NULL, NULL, (char*)SDK_PATH, &ctx.parsec);
+  char cwd[MAX_PATH];
+  ::GetModuleFileNameA(NULL, cwd, MAX_PATH);
+  ::PathRemoveFileSpecA(cwd);
+  std::string dllpath = std::string(cwd) + "\\parsec.dll";
+  if (!std::filesystem::exists(dllpath)) {
+    dllpath = "parsec-sdk\\sdk\\windows\\parsec.dll";
+  }
+
+  ParsecConfig pc{};
+  ParsecStatus e = ParsecInit(&pc, NULL, (char*)dllpath.c_str(), &ctx.parsec);
   if (e != PARSEC_OK) {
     MTY_ShowMessageBox("Parsec Error", "Parsec error: %d", e);
     return 1;
@@ -181,7 +174,7 @@ int Context::Start() {
 
   MTY_WindowDesc desc = {
       .title = config_.name.c_str(),
-      .api = MTY_GFX_D3D12,
+      .api = MTY_GFX_GL,
       .width = 1280,
       .height = 720,
   };

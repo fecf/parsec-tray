@@ -9,11 +9,11 @@
 
 // WinRT for HTTPS GET/POST
 #pragma comment(lib, "windowsapp")
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.Foundation.h>
+#include <string_view>
 #include "winrt/Windows.Web.Http.Filters.h"
 #include "winrt/Windows.Web.Http.Headers.h"
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <string_view>
 using namespace winrt;
 using namespace Windows::Foundation;
 using namespace Windows::Web::Http;
@@ -24,8 +24,8 @@ using namespace Windows::Foundation::Collections;
 #include "json.hpp"
 
 #include "client.h"
-#include "tray.h"
 #include "resource.h"
+#include "tray.h"
 
 int g_user_id;
 std::string g_session_id, g_peer_id;
@@ -59,32 +59,39 @@ tray CreateTray() {
       for (const ParsecHost& host : g_hosts) {
         std::string title;
         if (host.self) {
-          title = "(self) " +  host.name + " (" + host.peer_id + ")";
+          title = "(self) " + host.name + " (" + host.peer_id + ")";
         } else {
           title = "Connect to " + host.name + " (" + host.peer_id + ")";
         }
-        t.menu.push_back(tray_menu(title,
-        [&](const tray_menu*) {
+        t.menu.push_back(tray_menu(title, [=](const tray_menu*) {
+          char buf[MAX_PATH]{};
+          ::GetModuleFileNameA(NULL, buf, MAX_PATH);
+          char cmd[1024]{};
+          sprintf(cmd, "%s %s %s %s", buf, g_session_id.c_str(),
+                  g_peer_id.c_str(), host.peer_id.c_str());
+          STARTUPINFOA si{sizeof(si)};
+          PROCESS_INFORMATION pi{};
+          if (!::CreateProcess(NULL, cmd, NULL, NULL, FALSE, DETACHED_PROCESS,
+                               NULL, NULL, &si, &pi)) {
+            ::MessageBoxA(NULL, "parsec-tray", "failed to CreateProcess().",
+                          MB_OK);
+          }
         }));
       }
     }
     t.menu.push_back(tray_menu());
   }
   if (g_session_id != "" && g_peer_id != "") {
-    t.menu.push_back(
-        tray_menu("Login to different account ...", [&](const tray_menu*) {
-          g_run_auth = true;
-        }));
-    t.menu.push_back(
-        tray_menu("Logout", [&](const tray_menu*) {
-          g_session_id.clear();
-          g_peer_id.clear();
-          RefreshTray();
-        }));
-  } else {
-    t.menu.push_back(tray_menu("Login to Parsec ...", [&](const tray_menu*) {
-      g_run_auth = true;
+    t.menu.push_back(tray_menu("Login to different account ...",
+                               [&](const tray_menu*) { g_run_auth = true; }));
+    t.menu.push_back(tray_menu("Logout", [&](const tray_menu*) {
+      g_session_id.clear();
+      g_peer_id.clear();
+      RefreshTray();
     }));
+  } else {
+    t.menu.push_back(tray_menu("Login to Parsec ...",
+                               [&](const tray_menu*) { g_run_auth = true; }));
   }
   t.menu.push_back(tray_menu("Exit", [&](const tray_menu*) { tray_exit(); }));
   return t;
@@ -145,7 +152,8 @@ bool ParsecHosts(const std::string& session_id,
     return false;
   }
 
-  std::string res = winrt::to_string(response.Content().ReadAsStringAsync().get());
+  std::string res =
+      winrt::to_string(response.Content().ReadAsStringAsync().get());
   nlohmann::json response_json = nlohmann::json::parse(res);
   if (!response_json.contains("data")) {
     return false;
@@ -203,10 +211,13 @@ void Login() {
     std::cout << "input tfa token (just press enter if not set): ";
     std::cin >> tfa;
 
-    bool ret = ParsecAuth(email, password, tfa, g_user_id, g_session_id, g_peer_id);
+    bool ret =
+        ParsecAuth(email, password, tfa, g_user_id, g_session_id, g_peer_id);
     if (ret && g_user_id != 0 && g_session_id != "" && g_peer_id != "") {
-      ::WritePrivateProfileStringA("parsec-tray", "session_id", g_session_id.c_str(), path.c_str());
-      ::WritePrivateProfileStringA("parsec-tray", "peer_id", g_peer_id.c_str(), path.c_str());
+      ::WritePrivateProfileStringA("parsec-tray", "session_id",
+                                   g_session_id.c_str(), path.c_str());
+      ::WritePrivateProfileStringA("parsec-tray", "peer_id", g_peer_id.c_str(),
+                                   path.c_str());
       break;
     } else {
       std::cout << "failed to login.";
@@ -223,15 +234,17 @@ int WINAPI wWinMain(HINSTANCE hInstance,
                     HINSTANCE hPrevInstance,
                     PWSTR lpCmdLine,
                     int nCmdShow) {
-  if (__argc >= 4) {
-    g_session_id = __argv[1];
-    g_peer_id = __argv[2];
+  int argc;
+  LPWSTR* argv = ::CommandLineToArgvW(lpCmdLine, &argc);
+  if (argc >= 3) {
+    g_session_id = winrt::to_string(argv[0]);
+    g_peer_id = winrt::to_string(argv[1]);
     ParsecHosts(g_session_id, g_hosts);
 
-    std::string host_peer_id = __argv[3];
-    auto it = std::find_if(g_hosts.begin(), g_hosts.end(), [=](const ParsecHost& host) {
-      return host.peer_id == host_peer_id;
-    });
+    std::string host_peer_id = winrt::to_string(argv[2]);
+    auto it = std::find_if(
+        g_hosts.begin(), g_hosts.end(),
+        [=](const ParsecHost& host) { return host.peer_id == host_peer_id; });
 
     if (it != g_hosts.end()) {
       ContextConfig config;
@@ -242,14 +255,15 @@ int WINAPI wWinMain(HINSTANCE hInstance,
 
       Context context(config);
       if (!context.Start()) {
-        ::MessageBoxA(NULL, "parsec-tray", "Failed to start Parsec client.", MB_OK);
+        ::MessageBoxA(NULL, "parsec-tray", "Failed to start Parsec client.",
+                      MB_OK);
       }
     }
   } else {
     std::string path = GetIniPath();
     char buf[1024]{};
-    ::GetPrivateProfileStringA("parsec-tray", "session_id", "", buf, sizeof(buf),
-                               path.c_str());
+    ::GetPrivateProfileStringA("parsec-tray", "session_id", "", buf,
+                               sizeof(buf), path.c_str());
     g_session_id = buf;
     ::GetPrivateProfileStringA("parsec-tray", "peer_id", "", buf, sizeof(buf),
                                path.c_str());
