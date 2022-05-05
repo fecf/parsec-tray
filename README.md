@@ -1,6 +1,6 @@
 # parsec-tray
 
-Customized version of parsec-sdk/examples/host
+Customized version of parsec-sdk/examples/client
 
 ## Start client from tasktray
 ![image](https://user-images.githubusercontent.com/6128431/166864634-20fa95bb-b083-4b61-bf4d-8c50810778d1.png)
