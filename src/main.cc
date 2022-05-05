@@ -50,7 +50,8 @@ void RefreshTray() {
 
 tray CreateTray() {
   tray t;
-  t.icon = "IDI_ICON1";
+  t.icon = IDI_ICON1;
+  t.tooltip = "parsec-tray";
   if (g_session_id != "" && g_peer_id != "") {
     t.menu.push_back(tray_menu("Refresh"));
     if (g_hosts.empty()) {

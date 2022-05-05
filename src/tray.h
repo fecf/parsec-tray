@@ -40,8 +40,9 @@ SOFTWARE.
 struct tray_menu;
 
 struct tray {
-  std::string icon;
+  WORD icon;
   std::vector<tray_menu> menu;
+  std::string tooltip;
 };
 
 struct tray_menu {
@@ -158,6 +159,10 @@ static int tray_init(const tray& tray) {
   nid.uID = 0;
   nid.uFlags = NIF_ICON | NIF_MESSAGE;
   nid.uCallbackMessage = WM_TRAY_CALLBACK_MESSAGE;
+
+  memcpy_s(nid.szTip, sizeof(nid.szTip), tray.tooltip.c_str(),
+           tray.tooltip.size());
+
   Shell_NotifyIcon(NIM_ADD, &nid);
 
   tray_update(tray);
@@ -184,11 +189,12 @@ static void tray_update(const tray& tray) {
   UINT id = ID_TRAY_FIRST;
   hmenu = _tray_menu(tray.menu, &id);
   SendMessage(hwnd, WM_INITMENUPOPUP, (WPARAM)hmenu, 0);
-  HICON icon;
-  ExtractIconEx(tray.icon.c_str(), 0, NULL, &icon, 1);
+
+  HICON icon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(tray.icon));
   if (nid.hIcon) {
     DestroyIcon(nid.hIcon);
   }
+
   nid.hIcon = icon;
   Shell_NotifyIcon(NIM_MODIFY, &nid);
 
