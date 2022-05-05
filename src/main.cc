@@ -44,6 +44,16 @@ tray g_tray;
 bool g_run_auth = false;
 bool g_run_hosts = false;
 
+std::string GetIniPath() {
+  WCHAR* wbuf = NULL;
+  ::SHGetKnownFolderPath(FOLDERID_LocalAppData, KF_FLAG_CREATE, NULL, &wbuf);
+  if (!wbuf) {
+    throw std::runtime_error("failed SHGetKnownFolderPath().");
+  }
+  std::string path = winrt::to_string(wbuf) + "\\parsec-tray.ini";
+  return path;
+}
+
 void RefreshTray() {
   g_tray = CreateTray();
   tray_update(g_tray);
@@ -90,6 +100,9 @@ tray CreateTray() {
     t.menu.push_back(tray_menu("Logout", [&](const tray_menu*) {
       g_session_id.clear();
       g_peer_id.clear();
+      std::string path = GetIniPath();
+      ::WritePrivateProfileStringA("parsec-tray", "session_id", "", path.c_str());
+      ::WritePrivateProfileStringA("parsec-tray", "peer_id", "", path.c_str());
       RefreshTray();
     }));
   } else {
@@ -125,7 +138,7 @@ bool ParsecAuth(const std::string& email,
     HttpClient httpClient;
     HttpResponseMessage response = httpClient.SendRequestAsync(request).get();
     if (!response) {
-      std::cout << "failed to login.";
+      std::cout << "failed to login." << std::endl;
       return false;
     }
 
@@ -178,16 +191,6 @@ bool ParsecHosts(const std::string& session_id,
   return true;
 }
 
-std::string GetIniPath() {
-  WCHAR* wbuf = NULL;
-  ::SHGetKnownFolderPath(FOLDERID_LocalAppData, KF_FLAG_CREATE, NULL, &wbuf);
-  if (!wbuf) {
-    throw std::runtime_error("failed SHGetKnownFolderPath().");
-  }
-  std::string path = winrt::to_string(wbuf) + "\\parsec-tray.ini";
-  return path;
-}
-
 void Login() {
   // too lazy to create GUI ...
   std::string path = GetIniPath();
@@ -210,6 +213,7 @@ void Login() {
 
   std::cout << "login to parsec ..." << std::endl;
   while (g_session_id.empty() || g_peer_id.empty()) {
+    std::cout << std::endl;
     ::Sleep(1000);
 
     std::string email, password, tfa;
