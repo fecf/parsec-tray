@@ -24,6 +24,9 @@
     <ClInclude Include="src\client.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\api.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cc">
@@ -38,6 +41,9 @@
     <ClCompile Include="src\client.cc">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\api.cc">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="src\parsec-tray.rc">
@@ -45,8 +51,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\parsec.ico">
-      <Filter>src</Filter>
-    </Image>
+    <None Include="src\parsec.ico" />
   </ItemGroup>
 </Project>
