@@ -96,6 +96,12 @@ tray CreateTray() {
     t.menu.push_back(tray_menu("Login to Parsec ...",
                                [&](const tray_menu*) { g_run_auth = true; }));
   }
+  t.menu.push_back(tray_menu("-"));
+  t.menu.push_back(
+      tray_menu("Visit Website (https://github.com/fecf/parsec-tray)", [&](const tray_menu*) {
+        ::ShellExecuteA(NULL, "open", "https://github.com/fecf/parsec-tray",
+                        NULL, NULL, SW_SHOWNORMAL);
+      }));
   t.menu.push_back(tray_menu("Exit", [&](const tray_menu*) { tray_exit(); }));
   return t;
 }
